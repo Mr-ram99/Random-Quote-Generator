@@ -86,24 +86,27 @@ var colors=[
 
 ]
 document.addEventListener('onload',generateQuote());
-function generateQuote(){
+async function generateQuote(){
     
-        var index = Math.floor(Math.random()*21);
+        
         var bg = document.getElementById("container");
         var q = document.getElementById("quote");
         var a =document.getElementById("author");
         var h =document.getElementById("header");
-
-        fetch('https://api.quotable.io/random')
+        var len;
+        await fetch('https://api.quotable.io/random')
         .then(response => response.json())
         .then(data => {
             q.innerHTML=`"${data.content}"`;
             a.innerHTML=`-${data.author}`;
 
         })
+        if(q.innerHTML.length>150)
+        {
+            generateQuote();
+        }
+        var index = Math.floor(Math.random()*21);
         q.style.backgroundColor=colors[index].quoteColor;
         bg.style.backgroundColor = colors[index].backColor;
         h.style.backgroundColor= colors[index].quoteColor;
-        h.style.color= colors[index].backColor;
-
 }

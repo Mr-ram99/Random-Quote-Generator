@@ -40,15 +40,21 @@ transition: background-color 1s ease-out;
     color: rgb(0, 0, 0);
     text-align: center;
     transition: all 1s ease-out;
-    transform: skew(-10deg);
+    transform: skew(-5deg);
+    border-radius: 5px;
 }
 #author{
+    display:block;
     margin: 10px auto;
     font-size: 20px;
     font-style: italic;
     text-align: center;
+    transition: all 1s ease-out;
 }
 @media  screen and (max-width:480px) {
+    #container{
+        height: 120vh;
+    }
     .heading{
         padding: 2px 2px;
         font-size: 2em;
