@@ -24,7 +24,7 @@ transition: background-color 1s ease-out;
 }
 .btn{
     display: block;
-    margin: 10px auto;
+    margin: 40px auto;
     padding: 10px 5px;
     font-size: 24px;
     color: #fff;
@@ -61,7 +61,7 @@ transition: background-color 1s ease-out;
         
     }
     .btn{
-        margin: 10px auto;
+        margin: 40px auto;
         padding: 10px 5px;
         font-size: 20px;
         color: #fff;

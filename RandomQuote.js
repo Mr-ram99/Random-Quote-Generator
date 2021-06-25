@@ -1,33 +1,3 @@
-const quotes =[
-    {
-        quote:"अगर आप सफल होना चाहते हो तो आपको अपने काम में एकाग्रता लानी होगी |",
-        author:"बिल गेट्स"
-    },
-    {
-        quote:"मैदान से हारा हुआ इंसान तो फिर से जीत सकता है लेकिन मन से हारा हुआ इंसान कभी नहीं जीत सकता इसलिए मन से कभी हार मत मानना |",
-        author:""
-    },
-    {
-        quote:"जब तक किसी काम को हम शुरू नहीं करते तब तक वह काम नामुमकिन ही लगता है |",
-        author:"नेलसन मंडेला"
-    },
-    {
-        quote:"मोती कभी भी किनारे पे खुद नहीं आते, उन्हें पाने के लिए समुन्दर में उतरना ही पड़ता है ।",
-        author:""
-    },
-    {
-        quote:"अगर आप कुछ ऐसा पाना चाहते हैं जो आपने पहले कभी नहीं पाया,तो आपके कुछ ऐसा करना पड़ेगा जो अपने पहले कभी नहीं किया।",
-        author:""
-    },
-    {
-        quote:"शुरुआत करने का तरीका है कि आप बात करना छोड़ दें और बस काम करना शुरू करें।",
-        author:""
-    },
-    {
-        quote:"अगर आप कुछ सोच सकते हैं, तो यकीन मानिए आप उसे कर भी सकते हैं।",
-        author:""
-    }
-]
 var colors=[
     {
         quoteColor:"#87dea2",
@@ -52,20 +22,88 @@ var colors=[
     {
         quoteColor:"#FF2C55",
         backColor:"#C41E3D"
+    },
+    {
+        quoteColor:"#FF2C55",
+        backColor:"#E2294F"
+    },
+    {
+        quoteColor:"#DD99BB",
+        backColor:"#7B506F"
+    },
+    {
+        quoteColor:"#6A7B76",
+        backColor:"#3A4E48"
+    },
+    {
+        quoteColor:"#A6D9F7",
+        backColor:"#BCCCE0"
+    },
+    {
+        quoteColor:"#A69CAC",
+        backColor:"#474973"
+    },
+    {
+        quoteColor:"#FBC4AB",
+        backColor:"#F8AD9D"
+    },
+    {
+        quoteColor:"#F4978E",
+        backColor:"#F08080"
+    },
+    {
+        quoteColor:"#F5DDDD",
+        backColor:"#C2B2B4"
+    },
+    {
+        quoteColor:"#E7BBE3",
+        backColor:"#C884A6"
+    },
+    {
+        quoteColor:"#D1DEDE",
+        backColor:"#EAD2AC"
+    },
+    {
+        quoteColor:"#0DAB76",
+        backColor:"#139A43"
+    },
+    {
+        quoteColor:"#A491D3",
+        backColor:"#818AA3"
+    },
+    {
+        quoteColor:"#F2ED6F",
+        backColor:"#F4E04D"
+    },
+    {
+        quoteColor:"#BE97C6",
+        backColor:"#8661C1"
+    },
+    {
+        quoteColor:"#F4E87C",
+        backColor:"#CBBF7A"
     }
 
 ]
 document.addEventListener('onload',generateQuote());
 function generateQuote(){
-        var index = Math.floor(Math.random()*6);
+    
+        var index = Math.floor(Math.random()*21);
         var bg = document.getElementById("container");
         var q = document.getElementById("quote");
         var a =document.getElementById("author");
         var h =document.getElementById("header");
-        q.innerHTML=quotes[index].quote;
-        a.innerHTML="-"+quotes[index].author;
+
+        fetch('https://api.quotable.io/random')
+        .then(response => response.json())
+        .then(data => {
+            q.innerHTML=`"${data.content}"`;
+            a.innerHTML=`-${data.author}`;
+
+        })
         q.style.backgroundColor=colors[index].quoteColor;
         bg.style.backgroundColor = colors[index].backColor;
         h.style.backgroundColor= colors[index].quoteColor;
         h.style.color= colors[index].backColor;
+
 }
